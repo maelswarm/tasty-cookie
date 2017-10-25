@@ -9,6 +9,18 @@ Run ```mongod --dbpath <path to database>```
 
 Make a new project, and run the example below.
 
+## Database Structure
+
+    "yourdb"---.
+               |---"users"---.
+               |             |---"username"               
+               |             |---"password"               
+               |             |---"cookie"               
+               |               
+               `---"sessions"---.               
+                                |---"stamp"                                
+                                |---"cookie"
+
 ## Example
 
 ```js
