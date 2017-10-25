@@ -13,6 +13,8 @@ If you actually end up using this module for development purposes, then use HTTP
 
 ## Database Structure
 
+    database-----collections-----documents
+    
     "yourdb"---.
                |---"users"---.
                |             |---"username"               
