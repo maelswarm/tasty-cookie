@@ -9,6 +9,8 @@ Run ```mongod --dbpath <path to database>```
 
 Make a new project, and run the example below.
 
+If you actually end up using this module for development purposes, then use HTTPS!
+
 ## Database Structure
 
     "yourdb"---.
