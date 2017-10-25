@@ -10,6 +10,7 @@ Run ```mongod --dbpath <path to database>```
 Make a new project, and run the example below.
 
 ## Example
+
 ```js
 
 const key = "mylittleponymylittlepony";
@@ -30,28 +31,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 TastyCookie.init(dbpath, key, timeout, cookielifespan, function() {});
 
 login.use(function (req, res, next) {
-    TastyCookie.login(req.body.un, req.body.pw, function(token) {
-        req.body.myToken = token;
-		    next();
-    });
+  TastyCookie.login(req.body.un, req.body.pw, function(token) {
+    req.body.myToken = token;
+    next();
+  });
 });
 
 authentication.use(function (req, res, next) {
-	  TastyCookie.authenticate(req.body.myToken, function(e) {
-        e ? next() : res.send("Better luck next time!");
-	  });
+  TastyCookie.authenticate(req.body.myToken, function(e) {
+    e ? next() : res.send("Better luck next time!");
+  });
 });
 
 app.post("/auth", authentication, function(req, res) {
-	res.send('You did it!');
+  res.send('You did it!');
 });
 
 app.post("/login", login, function(req, res) {
-	res.send('Logged in!<form action="/auth" method="post"><input type="hidden" name="myToken" value="'+req.body.myToken+'"><input type="submit"></form>');
+  res.send('Logged in!<form action="/auth" method="post"><input type="hidden" name="myToken" value="'+req.body.myToken+'"><input type="submit"></form>');
 });
 
 app.get("/", function(req, res) {
-	res.send('Hello World!<form action="/login" method="post"><input type="text" name="un" value=""><input type="text" name="pw" value=""><input type="submit"></form>');
+  res.send('Hello World!<form action="/login" method="post"><input type="text" name="un" value=""><input type="text" name="pw" value=""><input type="submit"></form>');
 });
 
 app.listen(8080, function() {
@@ -59,8 +60,8 @@ app.listen(8080, function() {
 });
 
 process.on("SIGINT", function() {
-    console.log("\nSIGINT Closing App.");
-	  TastyCookie.close();
-	  process.exit();
+  console.log("\nSIGINT Closing App.");
+  TastyCookie.close();
+  process.exit();
 });
 ```
