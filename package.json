@@ -1,0 +1,19 @@
+{
+  "name": "tasty-cookie",
+  "version": "0.1.0",
+  "description": "A different way of authenticating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cookie",
+    "authentication"
+  ],
+  "author": "roecrew",
+  "license": "MIT",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "mongodb": "^2.2.33"
+  }
+}
