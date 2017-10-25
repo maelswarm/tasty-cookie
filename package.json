@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "A different way of authenticating",
   "main": "index.js",
+  "repository": {
+  "type": "git",
+  "url": "git://github.com/roecrew/tasty-cookie.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "cookie",
@@ -13,7 +16,7 @@
   "author": "roecrew",
   "license": "MIT",
   "dependencies": {
-    "crypto": "^1.0.1",
-    "mongodb": "^2.2.33"
+    "crypto": "*",
+    "mongodb": "*"
   }
 }
