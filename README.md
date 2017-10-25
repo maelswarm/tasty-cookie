@@ -43,14 +43,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 TastyCookie.init(dbpath, key, timeout, cookielifespan, function() {});
 
 login.use(function (req, res, next) {
-  TastyCookie.login(req.body.un, req.body.pw, function(token) {
-    req.body.myToken = token;
+  TastyCookie.login(req.body.un, req.body.pw, function(cookie) {
+    req.body.myCookie = cookie;
     next();
   });
 });
 
 authentication.use(function (req, res, next) {
-  TastyCookie.authenticate(req.body.myToken, function(e) {
+  TastyCookie.authenticate(req.body.myCookie, function(e) {
     e ? next() : res.send("Better luck next time!");
   });
 });
@@ -60,7 +60,7 @@ app.post("/auth", authentication, function(req, res) {
 });
 
 app.post("/login", login, function(req, res) {
-  res.send('Logged in!<form action="/auth" method="post"><input type="hidden" name="myToken" value="'+req.body.myToken+'"><input type="submit"></form>');
+  res.send('Logged in!<form action="/auth" method="post"><input type="hidden" name="myCookie" value="'+req.body.myCookie+'"><input type="submit"></form>');
 });
 
 app.get("/", function(req, res) {
