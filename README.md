@@ -44,7 +44,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-TastyCookie.init(dbpath, key, timeout, cookielifespan, function() {});
+TastyCookie.init(dbpath, key, timeout, cookielifespan);
 
 login.use(function (req, res, next) {
   TastyCookie.login(req.body.un, req.body.pw, function(cookie) {

@@ -9,7 +9,7 @@ const crypto = require('crypto');
 
 var myCookie = {
 
-	init: function(dbpath, cryptoKey, to, ls, callback) {
+	init: function(dbpath, cryptoKey, to, ls) {
 		key = cryptoKey;
 		timeout = to;
 		lifespan = ls;
@@ -34,7 +34,6 @@ var myCookie = {
 					}
 				});
 			}, timeout);
-			callback();
 		});
 	},
 
