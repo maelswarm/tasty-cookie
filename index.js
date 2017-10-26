@@ -57,9 +57,11 @@ var myCookie = {
 					});
 				} else {
 					console.log("Incorrect Password");
+					callback(-1);
 				}
 			} else {
 				console.log("Not a valid user");
+				callback(-2);
 			}
 		});
 	},
