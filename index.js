@@ -22,9 +22,9 @@ var myCookie = {
 				d = d.getTime();
 				database.collection("sessions").find().toArray(function(err, result) {
 					if(err) throw err;
-					console.log(result);
+					//console.log(result);
 					for(let i=0; i<result.length; i++) {
-						console.log(d+" "+result[i].stamp);
+						//console.log(d+" "+result[i].stamp);
 						if(result[i].stamp+lifespan < d) {
 							database.collection("sessions").remove({_id: ObjectID(result[i]._id)}, function(err1, obj) {
 								if(err) throw err;
@@ -39,7 +39,7 @@ var myCookie = {
 
 	login: function(username, password, callback) {
 		var encryptedPassword = this.encrypt(password);
-		console.log(encryptedPassword);
+		//console.log(encryptedPassword);
 		database.collection("users").find({username}).toArray(function(err, result) {
 			if(err) throw err;
 			if(result[0] !== undefined) {
@@ -67,7 +67,7 @@ var myCookie = {
 	requestCookie: function(callback) {
 		var token = new Date();
 		token = token.toString();
-		console.log(token);
+		//console.log(token);
 		callback(myCookie.generateCookie(token));
 	},
 
