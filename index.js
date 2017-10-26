@@ -85,15 +85,17 @@ var myCookie = {
 		});
 	},
 
-	logout: function(token) {
+	logout: function(token, callback) {
 		database.collection("sessions").find({cookie: token}).toArray(function(err1, result1) {
 			if (result1[0] !== undefined) {
 				database.collection("sessions").remove({_id: ObjectID(result1[0]._id)}, function(err2, obj) {
 					if(err2) throw err2;
 					console.log(result1[0]._id + " removed");
+					callback(1)
 				});
 			} else {
 				console.log("not a valid token");
+				callback(0);
 			}
 		});
 	},
