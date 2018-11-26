@@ -1,5 +1,4 @@
 # tasty-cookie
-A different way of authenticating
 
 ## Quickstart
 
